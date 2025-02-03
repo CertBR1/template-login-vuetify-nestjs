@@ -1,5 +1,6 @@
 import api from "@/common/api";
 import { useToast } from "@/common/toast";
+import router from "@/router";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore("auth", {
@@ -11,12 +12,13 @@ export const useAuthStore = defineStore("auth", {
     actions: {
         async login(credencial: { usuario: string, senha: string }) {
             try {
-                console.log(credencial);
                 const resposta = await api.post("/auth/login", credencial);
-                if (resposta.status === 200) {
+                console.log(resposta);
+                if (resposta.status === 201) {
                     this.acess_token = resposta.data.access_token;
                     this.usuario = resposta.data.usuario;
                     this.autenticado = true;
+                    router.push("/");
                     return;
                 }
                 throw new Error(resposta.data.message);
