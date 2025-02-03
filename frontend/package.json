@@ -2,15 +2,18 @@
   "name": "frontend",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@mdi/font": "7.4.47",
+    "@types/axios": "^0.14.4",
+    "axios": "^1.7.9",
     "core-js": "^3.37.1",
     "frontend": "file:",
+    "pinia-plugin-persistedstate": "^4.2.0",
     "roboto-fontface": "*",
     "vue": "^3.4.31",
     "vuetify": "^3.6.11"

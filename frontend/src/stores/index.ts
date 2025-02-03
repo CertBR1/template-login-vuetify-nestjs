@@ -1,4 +1,4 @@
 // Utilities
 import { createPinia } from 'pinia'
-
-export default createPinia()
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+export default createPinia().use(piniaPluginPersistedstate)
